@@ -10,14 +10,14 @@ export class NoteComponent implements OnInit {
 
   submittable = false;
 
-  note: Note = {
+  note = {
     title: '',
     description: '',
     id: 0,
     dateCreated: ''
   };
 
-  notes: Note[] = [];
+  notes = [];
 
   constructor() {
 
@@ -33,12 +33,16 @@ export class NoteComponent implements OnInit {
     return note = new Note(note.title, note.description, note.id, Date());
   }
 
+  deleteNote(i) {
+    return this.notes.splice(i, 1);
+  }
+
   onSubmit() {
     this.notes.push(this.createNote(this.note));
-    console.log(this.notes);
   }
 
   ngOnInit() {
+
   }
 
 }
